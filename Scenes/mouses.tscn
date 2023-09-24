@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cacv1kdtwomco"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/mouses/mouses.gd" id="1_yqaya"]
+[ext_resource type="Texture2D" uid="uid://bysqp6yymsmkq" path="res://Art/Sprites/Mouse/Souris-1.png" id="2_q4ona"]
+[ext_resource type="Texture2D" uid="uid://q7aix4hdnqo6" path="res://Art/Sprites/Mouse/Souris-2.png" id="3_5ny4w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4q57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q4ona")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5ny4w")
+}],
+"loop": true,
+"name": &"Mouses",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvw6m"]
+radius = 5.33333
+height = 10.6667
+
+[node name="Mouses" type="RigidBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_yqaya")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_d4q57")
+animation = &"Mouses"
+frame = 1
+frame_progress = 0.989764
+offset = Vector2(0, -4.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mvw6m")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://hxryasrxtrna"]
+
+[ext_resource type="Texture2D" uid="uid://5l44au3auwyu" path="res://Art/Sprites/Bullets/Bocaux.png" id="1_kbga3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2fxt"]
+radius = 4.0
+height = 8.0
+
+[node name="Can" type="RigidBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_kbga3")
+offset = Vector2(0.535, -3.895)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_b2fxt")
