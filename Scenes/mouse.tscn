@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvvencpovp3kn"]
+
+[ext_resource type="Texture2D" uid="uid://bysqp6yymsmkq" path="res://Enemies/Mouse/Souris-1.png" id="1_7pgsb"]
+[ext_resource type="Texture2D" uid="uid://q7aix4hdnqo6" path="res://Enemies/Mouse/Souris-2.png" id="2_58t2a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0deb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7pgsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_58t2a")
+}],
+"loop": true,
+"name": &" ",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhlc7"]
+size = Vector2(9, 5)
+
+[node name="Mouse" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0deb2")
+animation = &" "
+offset = Vector2(0, -4.62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bhlc7")
